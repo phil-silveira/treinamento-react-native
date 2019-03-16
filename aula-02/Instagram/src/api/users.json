@@ -2,22 +2,21 @@
   "users": [
     {
       "name": "João",
-      "perfil": "https://image.freepik.com/vetores-gratis/face-do-zombi-ilustracao-vetorial_1262-4499.jpg",
-      "status": "Working like a horse",
-      "online": true
+      "perfil": "http://image.freepik.com/vetores-gratis/face-do-zombi-ilustracao-vetorial_1262-4499.jpg",
+      "info": "Working like a horse",
+      "status": "offline"
     },
     {
       "name": "João",
-      "perfil": "https://img.freepik.com/free-photo/adorable-jack-russell-retriever-puppy-portrait_53876-64825.jpg?size=338&ext=jpg",
-      "status": "Playing Metal Slug",
-      "online": false
+      "perfil": "http://img.freepik.com/free-photo/adorable-jack-russell-retriever-puppy-portrait_53876-64825.jpg?size=338&ext=jpg",
+      "info": "Playing Metal Slug",
+      "status": "online"
     },
     {
       "name": "João",
-      "perfil": "https://image.freepik.com/free-vector/orange-background-with-halloween-pumpkin-face_1199-148.jpg",
-      "status": "Just sleeping, Zzz...",
-      "online": false
+      "perfil": "http://image.freepik.com/free-vector/orange-background-with-halloween-pumpkin-face_1199-148.jpg",
+      "info": "Just sleeping, Zzz...",
+      "status": "offline"
     }
-  ],
-  "usuarios": []
+  ]
 }

@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Image, Platform, Dimensions, Text, StyleSheet, ScrollView, View, TouchableOpacity } from "react-native";
 
-import api from "./api/feed.json";
-import users from "./api/users.json";
+// import api from "./api/feed.json";
+import api from "./api/users.json";
 
-import { SearchBar } from "./components/";
+import { SearchBar, UserList } from "./components/";
 
 const width = Dimensions.get('window').width
 
 class App extends Component {
+
   renderPostHeader = (post) => {
     return (
       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -97,6 +98,7 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <SearchBar />
+        <UserList users={api.users} />
       </View>
     )
   }
@@ -123,5 +125,11 @@ const styles = StyleSheet.create({
   },
   postList: {
     backgroundColor: "#F5FCFF",
+  },
+  navbarTitle: {
+    fontFamily: 'Lato-Regular',
+    fontSize: 48,
+    marginLeft: 15
   }
+
 });

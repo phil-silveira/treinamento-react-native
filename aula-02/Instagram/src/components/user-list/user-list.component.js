@@ -1,28 +1,32 @@
 import React from 'react'
-import { View, ScrollView, Text, StyleSheet } from 'react-native'
+import { View, ScrollView, Text, Image, StyleSheet } from 'react-native'
 
 export class UserList extends React.Component {
-    renderUserPerfil = (user) => {
+    renderUserPerfil = (user, key) => {
         return (
-            <View style={styles.container}>
-                <Image
-                    style={styles.perfil}
-                    source={{ uri: user.perfil }} />
+            <View key={key} style={styles.container}>
+                <View style={styles.perfilImageContainer}>
+                    <Image
+                        style={styles.perfilImage}
+                        source={{ uri: user.perfil }} />
+                    {user.status === 'online' ? <View style={styles.status} ></View> : null}
+                </View>
                 <View style={styles.content}>
                     <Text style={styles.name}>{user.name}</Text>
-                    <Text style={styles.status}>{user.status}</Text>
+                    <Text style={styles.info}>{user.info}</Text>
                 </View>
                 <Image
-                    style={styles.camera}
+                    style={styles.cameraIcon}
                     source={require('../../img/camera-outline.png')} />
             </View>
         )
     }
 
     render() {
+        const { users } = this.props
         return (
             <ScrollView>
-                {this.props.users.map((user) => this.renderUserPerfil(user))}
+                {users.map((user, key) => this.renderUserPerfil(user, key))}
             </ScrollView>
         )
     }
@@ -34,14 +38,42 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingVertical: 30
+        paddingVertical: 30,
+        paddingHorizontal: 10
+    },
+    perfilImageContainer: {
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+    },
+    perfilImage: {
+        width: 60,
+        height: 60,
+        resizeMode: 'cover',
+        borderRadius: 50,
+    },
+    status: {
+        width: 25,
+        height: 25,
+        backgroundColor: 'lightgreen',
+        borderWidth: 3,
+        borderColor: '#fff',
+        borderRadius: 50,
+        position: 'absolute',
     },
     content: {
-
+        flex: 1,
+        flexDirection: 'column',
+        paddingHorizontal: 20,
     },
-    title: {
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        fontSize: 30
+    cameraIcon: {
+        resizeMode: 'contain',
+        width: 40,
+    },
+    name: {
+        color: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
+        fontFamily: 'Lato-Regular',
+
     }
 })
