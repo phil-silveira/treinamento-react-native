@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Image, Platform, Dimensions, Text, StyleSheet, ScrollView, View, TouchableOpacity } from "react-native";
 
-// import api from "./api/feed.json";
-import api from "./api/users.json";
+import api from "./api/apiFake.json";
 
 import { SearchBar, UserList } from "./components/";
 
@@ -94,26 +93,26 @@ class App extends Component {
     )
   }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <SearchBar />
-        <UserList users={api.users} />
-      </View>
-    )
-  }
-
   // render() {
   //   return (
   //     <View style={styles.container}>
-  //       {this.renderHeader()}
-  //       <ScrollView style={styles.postList}>
-  //         {api.feed.map((post, key) => this.renderPost(post, key))}
-  //       </ScrollView>
-  //       {this.renderTabBar()}
+  //       <SearchBar />
+  //       <UserList users={api.users} />
   //     </View>
-  //   );
+  //   )
   // }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.renderHeader()}
+        <ScrollView style={styles.postList}>
+          {api.feed.map((post, key) => this.renderPost(post, key))}
+        </ScrollView>
+        {this.renderTabBar()}
+      </View>
+    );
+  }
 }
 
 export default App;

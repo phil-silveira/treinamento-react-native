@@ -1,5 +1,6 @@
 import React from 'react'
-import { Image, TextInput, View, StyleSheet } from 'react-native'
+import { TextInput, View } from 'react-native'
+import { IgIcon } from '../../components/'
 
 import styles from './search-bar.style'
 
@@ -7,9 +8,9 @@ export class SearchBar extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image
+                <IgIcon
+                    name='search'
                     style={styles.icon}
-                    source={require('../../img/search.png')}
                 />
                 <TextInput
                     style={styles.text}

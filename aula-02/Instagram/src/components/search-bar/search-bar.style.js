@@ -16,7 +16,7 @@ export default styles = StyleSheet.create({
     },
     icon: {
         tintColor: '#666',
-        resizeMode: 'contain',
-        width: 22
+        marginHorizontal: 10,
+        fontSize: 20
     }
 })

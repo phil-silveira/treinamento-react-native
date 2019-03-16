@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "emulator": "emulator -avd Pixel",
     "test": "jest"
   },
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.0",
+    "react-native-vector-icons": "^6.4.1",
     "react-navigation": "^3.4.0"
   },
   "devDependencies": {
