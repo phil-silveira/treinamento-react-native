@@ -1,9 +1,16 @@
 import React from 'react'
-import { ImageBackground, View, Text, TextInput, TouchableOpacity, Button, StyleSheet } from 'react-native'
+import { ImageBackground, View, Text, TextInput, TouchableOpacity, Button } from 'react-native'
 
 import { IgIcon } from '../../components'
 
+import styles from './sign-in.style'
+
 export class SignInScreen extends React.Component {
+    state = {
+        username: '',
+        password: '',
+    }
+
     renderLink = (text, link) => {
         return (
             <View style={styles.row}>
@@ -13,10 +20,47 @@ export class SignInScreen extends React.Component {
                     </Text>
                 </View>
                 <TouchableOpacity style={{ borderBottomColor: '#fff', borderBottomWidth: 1 }}>
-                    <Text style={styles.h3}>
+                    <Text style={styles.h4}>
                         {link}
                     </Text>
                 </TouchableOpacity>
+            </View>
+        )
+    }
+
+    renderForm = () => {
+        const { username, password } = this.state
+
+        return (
+            <View style={styles.form}>
+                <Text style={styles.h2}>
+                    Sign in and use more features
+                </Text>
+                <TextInput
+                    placeholder='Email or username'
+                    style={styles.input}
+                    value={username}
+                    onChangeText={(username) => this.setState({ username })}
+                />
+                <TextInput
+                    placeholder='Password'
+                    style={styles.input}
+                    value={password}
+                    onChangeText={(password) => this.setState({ password })}
+                />
+                <TouchableOpacity style={styles.button} >
+                    <Text style={styles.h3}>Sign in</Text>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
+    renderSectionDivider = text => {
+        return (
+            <View style={styles.row} >
+                <View style={styles.bar} />
+                <Text style={{ ...styles.h3, margin: 15 }} >{text}</Text>
+                <View style={styles.bar} />
             </View>
         )
     }
@@ -29,86 +73,24 @@ export class SignInScreen extends React.Component {
                 <View style={styles.container} >
                     <IgIcon
                         style={styles.instagram}
-                        name='instagram-logo'
-                    />
+                        name='instagram-logo' />
 
-                    <Text style={styles.h2}>
-                        Sign in and use more features
-                </Text>
-
-                    <TextInput
-                        placeholder='Email or username'
-                        style={styles.input}
-                    />
-                    <TextInput
-                        placeholder='Password'
-                        style={styles.input}
-                    />
-                    <Button title='Sign in' />
+                    {this.renderForm()}
 
                     {this.renderLink('Forgot your login details?', 'Get help signing in.')}
 
-                    <View style={styles.row} >
-                        <View style={styles.bar} />
-                        <Text style={{ ...styles.h3, margin: 15 }} >OR</Text>
-                        <View style={styles.bar} />
+                    {this.renderSectionDivider('OR')}
+
+                    <View style={{ flex: 3, justifyContent: 'space-around' }}>
+                        <TouchableOpacity style={styles.row}>
+                            <IgIcon name='facebook-icon' style={{ fontSize: 15, color: '#fff', margin: 10 }} />
+                            <Text style={styles.h3}>Continue with Facebook</Text>
+                        </TouchableOpacity>
+
+                        {this.renderLink('Don\'t have an account?', 'Signing up.')}
                     </View>
-
-                    <TouchableOpacity style={styles.row}>
-                        <IgIcon name='facebook-icon' style={{ fontSize: 15, color: '#fff', margin: 10 }} />
-                        <Text style={styles.h3}>Continue with Facebook</Text>
-                    </TouchableOpacity>
-
-                    {this.renderLink('Don\'t have an account?', 'Signing up.')}
                 </View>
             </ImageBackground>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    background: {
-        flex: 1
-    },
-    container: {
-        flex: 1,
-        marginVertical: 40,
-        marginHorizontal: 30,
-    },
-    instagram: {
-        fontSize: 40,
-        color: '#fff',
-        marginVertical: 40,
-        textAlign: 'center',
-    },
-    h2: {
-        color: '#fff',
-        fontSize: 20,
-        fontWeight: '400',
-        textAlign: 'center',
-        margin: 20,
-    },
-    h3: {
-        color: '#fff',
-        fontSize: 12,
-        fontWeight: '100',
-        textAlign: 'center',
-    },
-    input: {
-        backgroundColor: '#fafafa',
-        borderRadius: 5,
-        color: '#D8D8D8',
-        fontSize: 15,
-        marginVertical: 10,
-    },
-    row: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    bar: {
-        flex: 1,
-        height: 2,
-        backgroundColor: '#fff'
-    }
-})
