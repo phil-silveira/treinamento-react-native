@@ -1,5 +1,6 @@
 import React from 'react'
-import { ImageBackground, View, Text, TextInput, TouchableOpacity, Button } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 
 import { IgIcon } from '../../components'
 
@@ -19,7 +20,7 @@ export class SignInScreen extends React.Component {
                         {text}
                     </Text>
                 </View>
-                <TouchableOpacity style={{ borderBottomColor: '#fff', borderBottomWidth: 1 }}>
+                <TouchableOpacity style={{ borderBottomColor: '#fff', borderBottomWidth: 1, marginLeft: 5 }}>
                     <Text style={styles.h4}>
                         {link}
                     </Text>
@@ -67,9 +68,16 @@ export class SignInScreen extends React.Component {
 
     render() {
         return (
-            <ImageBackground
-                source={require('../../img/sign-in-background.png')}
-                style={styles.background}>
+            <LinearGradient
+                start={{ x: 1, y: 0 }}
+                end={{ x: 0, y: 1 }}
+                colors={['#A21391', '#CD106A', '#D82851', '#E95634', '#F8A64D']}
+                style={styles.background}
+            >
+                <StatusBar
+                    backgroundColor='#111'
+                    barStyle='light-content'
+                />
                 <View style={styles.container} >
                     <IgIcon
                         style={styles.instagram}
@@ -90,7 +98,7 @@ export class SignInScreen extends React.Component {
                         {this.renderLink('Don\'t have an account?', 'Signing up.')}
                     </View>
                 </View>
-            </ImageBackground>
+            </LinearGradient>
         )
     }
 }

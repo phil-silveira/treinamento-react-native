@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, ScrollView, Text, Image, StyleSheet } from 'react-native'
 
+import { IgIcon } from '../../components'
+
 export class UserList extends React.Component {
     renderUserPerfil = (user, key) => {
         return (
@@ -15,9 +17,9 @@ export class UserList extends React.Component {
                     <Text style={styles.name}>{user.name}</Text>
                     <Text style={styles.info}>{user.info}</Text>
                 </View>
-                <Image
+                <IgIcon
                     style={styles.cameraIcon}
-                    source={require('../../img/camera-outline.png')} />
+                    name='camera-outline' />
             </View>
         )
     }
@@ -66,8 +68,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     cameraIcon: {
-        resizeMode: 'contain',
-        width: 40,
+        fontSize: 30,
     },
     name: {
         color: '#000',
