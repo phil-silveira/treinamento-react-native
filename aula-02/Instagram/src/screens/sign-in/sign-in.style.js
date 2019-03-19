@@ -26,11 +26,6 @@ export default styles = StyleSheet.create({
         height: 2,
         backgroundColor: '#fff'
     },
-    form: {
-        flex: 4,
-        justifyContent: 'space-around',
-        margin: 10,
-    },
     h2: {
         color: '#fff',
         fontSize: 20,
@@ -49,12 +44,18 @@ export default styles = StyleSheet.create({
         fontWeight: '100',
         textAlign: 'center',
     },
+    form: {
+        justifyContent: 'space-around',
+        margin: 10,
+        height: 200,
+    },
     input: {
         backgroundColor: '#fafafa',
-        color: '#D8D8D8',
+        color: '#262626',
         borderRadius: 3,
         fontSize: 15,
         height: 40,
+        paddingHorizontal: 15,
     },
     button: {
         backgroundColor: '#3897F0',

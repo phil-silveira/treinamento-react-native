@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
-import { FeedScreen, SignInScreen } from "./screens";
+import {
+  ProfileScreen,
+  // FeedScreen,
+  // SignInScreen
+} from "./screens";
 
 class App extends Component {
   // render() {
@@ -14,7 +18,8 @@ class App extends Component {
 
   render() {
     // return <FeedScreen />
-    return <SignInScreen />
+    // return <SignInScreen />
+    return <ProfileScreen />
   }
 }
 
