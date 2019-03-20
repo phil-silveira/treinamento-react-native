@@ -3,7 +3,7 @@ import { Image, Platform, Dimensions, Text, StyleSheet, ScrollView, View, Toucha
 
 import { IgIcon, InstagramHeader } from '../../components/';
 
-import api from "../../api/apiFake.json";
+import api from "../../api/api-fake.json";
 
 const width = Dimensions.get('window').width
 
