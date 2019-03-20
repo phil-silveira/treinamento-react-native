@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import {
-  ProfileScreen,
-  // FeedScreen,
-  // SignInScreen
+  EditProfileScreen,
+  FeedScreen,
+  SignInScreen
 } from "./screens";
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     // return <FeedScreen />
     // return <SignInScreen />
-    return <ProfileScreen />
+    return <EditProfileScreen />
   }
 }
 

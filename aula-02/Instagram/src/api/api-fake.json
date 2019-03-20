@@ -44,5 +44,19 @@
       "curtidas": 1494,
       "liked": false
     }
-  ]
+  ],
+  "profileFake": {
+    "photo": "http://images5.fanpop.com/image/photos/30600000/Ed-hyenas-from-lion-king-30679343-470-337.jpg",
+    "publicInfo": {
+      "name": "Charles Beck",
+      "username": "Charlesbeck",
+      "website": "wondermedia.ru",
+      "bio": "CEO Wondermedia.ru - digital"
+    },
+    "privateInfo": {
+      "email": "yes@wondermedia.ru",
+      "phone": "+12312312312",
+      "gender": "Male"
+    }
+  }
 }
