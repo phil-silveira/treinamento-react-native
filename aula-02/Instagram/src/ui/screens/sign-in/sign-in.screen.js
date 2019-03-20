@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 
-import { IgIcon } from '../../components'
+import { IgIcon } from '../../../components'
 
 import styles from './sign-in.style'
 
@@ -74,10 +74,6 @@ export class SignInScreen extends React.Component {
                 colors={['#A21391', '#CD106A', '#D82851', '#E95634', '#F8A64D']}
                 style={styles.background}
             >
-                <StatusBar
-                    backgroundColor='#111'
-                    barStyle='light-content'
-                />
                 <View style={styles.container} >
                     <IgIcon
                         style={styles.instagram}

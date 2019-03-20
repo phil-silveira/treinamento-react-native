@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, ScrollView, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
 
-import { TextLink, AvatarPhoto, IgHeader } from '../../components'
+import { TextLink, AvatarPhoto, IgHeader } from '../../../components'
 import { EditForm } from './sections/edit-form/edit-form.component'
 
 import styles from './edit-profile.style'
 
-import api from '../../api/api-fake.json'
+import api from "../../../api/api-fake.json";
 
 export class EditProfileScreen extends React.Component {
     constructor() {

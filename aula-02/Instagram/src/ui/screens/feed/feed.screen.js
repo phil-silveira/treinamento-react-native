@@ -1,13 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import { Image, Platform, Dimensions, Text, StyleSheet, ScrollView, View, TouchableOpacity } from "react-native";
 
-import { IgIcon, InstagramHeader } from '../../components/';
+import { IgIcon, InstagramHeader } from '../../../components'
 
-import api from "../../api/api-fake.json";
+import { BaseScreen } from '../../screens/base'
+
+import api from "../../../api/api-fake.json";
 
 const width = Dimensions.get('window').width
 
-export class FeedScreen extends Component {
+export class FeedScreen extends BaseScreen {
     renderPostHeader = (post) => {
         return (
             <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -38,7 +40,7 @@ export class FeedScreen extends Component {
         )
     }
 
-    renderTabBar = () => {
+    renderBar = () => {
         return (
             <View style={{ flexDirection: 'row', justifyContent: "space-around", alignItems: "center" }}>
                 <IgIcon
@@ -79,7 +81,7 @@ export class FeedScreen extends Component {
                 <ScrollView style={styles.postList}>
                     {api.feed.map((post, key) => this.renderPost(post, key))}
                 </ScrollView>
-                {this.renderTabBar()}
+                {this.renderBar()}
             </View>
         );
     }
