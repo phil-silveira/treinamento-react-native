@@ -3,6 +3,8 @@ import { createBottomTabNavigator } from 'react-navigation'
 
 import { FeedStack } from '../../navigator/stacks/feed'
 
+import { TabBar } from '../../../components'
+
 export const RootTabBar = createBottomTabNavigator({
     FeedStack: {
         screen: FeedStack,
@@ -10,4 +12,7 @@ export const RootTabBar = createBottomTabNavigator({
             header: null
         }
     }
-})
+}, {
+        tabBarComponent: TabBar
+    }
+)

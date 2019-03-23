@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.oblador.vectoricons.VectorIconsPackage;
+import org.reactnative.camera.RNCameraPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -27,10 +28,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new LinearGradientPackage(),
+          new LinearGradientPackage(),
           new RNGestureHandlerPackage(),
-          new VectorIconsPackage()
-
+          new VectorIconsPackage(),
+          new RNCameraPackage()
       );
     }
 
