@@ -1,6 +1,8 @@
 import { createStackNavigator } from 'react-navigation'
 
 import { RootTabBar } from '../tabbar'
+import { DirectStack } from './direct'
+import { EditProfileStack } from './edit-profile'
 
 export const RootStack = createStackNavigator({
     RootTabBar: {
@@ -9,10 +11,19 @@ export const RootStack = createStackNavigator({
             header: null
         }
     },
-    // DirectStack: {
-    //     screen: DirectStack,
-    //     navigationOptions: {
-    //         header: null
-    //     }
-    // }
-})
+    DirectStack: {
+        screen: DirectStack,
+        navigationOptions: {
+            header: null
+        }
+    },
+    EditProfileStack: {
+        screen: EditProfileStack,
+        navigationOptions: {
+            header: null
+        }
+    },
+}, {
+        mode: 'modal'
+    }
+)

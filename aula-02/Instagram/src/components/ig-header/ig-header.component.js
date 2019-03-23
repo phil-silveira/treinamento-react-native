@@ -7,11 +7,13 @@ export class IgHeader extends React.Component {
     render() {
         const {
             left, center, right,
-            onPressLeft, onPressCenter, onPressRight } = this.props
+            onPressLeft, onPressCenter, onPressRight,
+            style
+        } = this.props
 
         return (
             <View
-                style={styles.header}>
+                style={{ ...styles.header, ...style }}>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={onPressLeft}>
