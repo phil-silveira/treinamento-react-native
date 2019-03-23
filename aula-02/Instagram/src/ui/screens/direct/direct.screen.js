@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, StatusBar, ScrollView, View } from 'react-native'
 
-import { SearchBar, IgIcon } from '../../../components'
+import { SearchBar, IgIcon, IgCamera } from '../../../components'
 
 import { HeaderBackButton, NavigationActions, StackActions } from 'react-navigation'
 
@@ -36,7 +36,6 @@ export class DirectScreen extends BaseScreen {
     }
 
     _onDismiss() {
-        // this.props.navigation.pop()
 
         const backAction = NavigationActions.back()
         this.props.navigation.dispatch(backAction)

@@ -14,8 +14,6 @@ import {
 
 } from 'react-native'
 
-// import Styles from './base.style'
-
 const HARDWARE_BACK_PRESS = 'hardwareBackPress'
 
 export class BaseScreen extends React.Component {

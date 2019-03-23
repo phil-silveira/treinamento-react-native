@@ -50,7 +50,7 @@ export class EditProfileScreen extends React.Component {
 
         return (
             <ScrollView>
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 1, marginHorizontal: 10 }}>
                     <IgHeader
                         left={'cancel'}
                         center={'edit profile'}
