@@ -40,28 +40,6 @@ export class FeedScreen extends BaseScreen {
         )
     }
 
-    renderBar = () => {
-        return (
-            <View style={{ flexDirection: 'row', justifyContent: "space-around", alignItems: "center" }}>
-                <IgIcon
-                    style={{ fontSize: 25, margin: 8 }}
-                    name='camera-outline' />
-                <IgIcon
-                    style={{ fontSize: 25, margin: 8 }}
-                    name='camera-outline' />
-                <IgIcon
-                    style={{ fontSize: 25, margin: 8 }}
-                    name='camera-outline' />
-                <IgIcon
-                    style={{ fontSize: 25, margin: 8 }}
-                    name='camera-outline' />
-                <IgIcon
-                    style={{ fontSize: 25, margin: 8 }}
-                    name='camera-outline' />
-            </View>
-        )
-    }
-
     renderPost = (post, key) => {
         return (
             <View key={key}>
@@ -81,7 +59,6 @@ export class FeedScreen extends BaseScreen {
                 <ScrollView style={styles.postList}>
                     {api.feed.map((post, key) => this.renderPost(post, key))}
                 </ScrollView>
-                {this.renderBar()}
             </View>
         );
     }
