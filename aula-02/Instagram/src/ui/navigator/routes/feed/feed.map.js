@@ -4,7 +4,7 @@ import { FEED_ROUTES } from './feed.route'
 
 import { FeedScreen } from '../../../screens'
 
-import { NavBar } from '../../../../components'
+import { NavBar } from '../../../components'
 
 export const FeedRoutes = {
     [FEED_ROUTES.FEED]: {

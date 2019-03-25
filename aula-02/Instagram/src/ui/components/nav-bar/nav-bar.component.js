@@ -3,8 +3,8 @@ import { Platform, StatusBar, StyleSheet } from 'react-native'
 
 import { IgHeader, IgIcon } from '../../components'
 
-import { DIRECT_ROUTES } from '../../ui/navigator/routes/direct/direct.route'
-import { CAMERA_ROUTES } from '../../ui/navigator/routes/camera/camera.route'
+import { DIRECT_ROUTES } from '../../navigator/routes/direct/direct.route'
+import { CAMERA_ROUTES } from '../../navigator/routes/camera/camera.route'
 
 export class NavBar extends React.Component {
     constructor() {

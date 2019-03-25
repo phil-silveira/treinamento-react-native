@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 
-import { IgIcon } from '../../../components'
+import { IgIcon } from '../../components'
 
 import styles from './sign-in.style'
 

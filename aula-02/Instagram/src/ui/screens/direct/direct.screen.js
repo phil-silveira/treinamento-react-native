@@ -1,9 +1,9 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, StatusBar, ScrollView, View } from 'react-native'
 
-import { SearchBar, IgIcon, IgCamera } from '../../../components'
+import { SearchBar, IgIcon } from '../../components'
 
-import { HeaderBackButton, NavigationActions, StackActions } from 'react-navigation'
+import { HeaderBackButton, NavigationActions } from 'react-navigation'
 
 import api from '../../../api/api-fake.json'
 

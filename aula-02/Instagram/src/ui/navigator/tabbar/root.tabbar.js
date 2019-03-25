@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from 'react-navigation'
 
 import { FeedStack } from '../../navigator/stacks/feed'
 
-import { TabBar } from '../../../components'
+import { TabBar } from '../../components'
 
 import { FEED_ROUTES } from '../routes/feed/feed.route'
 import { DIRECT_ROUTES } from '../routes/direct/direct.route'

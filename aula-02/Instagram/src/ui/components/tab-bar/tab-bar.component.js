@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
 
-import { IgIcon, AvatarPhoto } from '../../components'
+import { IgIcon, AvatarPhoto } from '../'
 
 import styles from './tab-bar.style'
 

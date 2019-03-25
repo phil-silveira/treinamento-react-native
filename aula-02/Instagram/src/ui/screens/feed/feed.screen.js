@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, StatusBar } from "react-native";
 
-import { Post } from '../../../components'
+import { Post } from '../../components'
 
 import { BaseScreen } from '../../screens/base'
 
