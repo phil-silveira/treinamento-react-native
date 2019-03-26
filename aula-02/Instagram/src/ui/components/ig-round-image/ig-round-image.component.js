@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image } from 'react-native'
 
-export class AvatarPhoto extends React.Component {
+export class IgRoundImage extends React.Component {
     render() {
         const { source, size, style } = this.props
 

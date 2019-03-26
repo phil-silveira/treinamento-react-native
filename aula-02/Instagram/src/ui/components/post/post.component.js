@@ -3,14 +3,14 @@ import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
 
 const { width } = Dimensions.get('window')
 
-import { IgIcon } from '../../components'
+import { IgIcon, IgRoundImage } from '../../components'
 
 export class Post extends PureComponent {
     renderPostHeader = (post) => {
         return (
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image
-                    style={{ width: 50, height: 50, borderRadius: 50, margin: 10 }}
+                <IgRoundImage
+                    size={50}
                     source={{ uri: post.perfil }} />
                 <View style={{ flex: 1, justifyContent: "center" }}>
                     <Text>{post.autor}</Text>

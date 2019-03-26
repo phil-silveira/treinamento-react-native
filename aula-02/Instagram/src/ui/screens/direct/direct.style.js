@@ -19,7 +19,7 @@ export default styles = StyleSheet.create({
     icon: {
         width: 20,
         height: 20,
-        tintColor: '#999899'
+        color: '#999899'
     },
     searchContainer: {
         flexDirection: 'row',
@@ -44,11 +44,6 @@ export default styles = StyleSheet.create({
         paddingHorizontal: 20,
         marginVertical: 5,
     },
-    contactPhoto: {
-        width: 45,
-        height: 45,
-        borderRadius: 22.5
-    },
     cameraButton: {
         flexDirection: 'row',
         height: 40,
@@ -61,7 +56,7 @@ export default styles = StyleSheet.create({
     cameraButtonIcon: {
         width: 25,
         height: 25,
-        tintColor: '#5DA7FF'
+        color: '#5DA7FF'
     },
     cameraButtonText: {
         marginLeft: 8,

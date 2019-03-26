@@ -1,7 +1,7 @@
 import React from 'react'
-import { Image, Text, TouchableOpacity, StatusBar, ScrollView, View } from 'react-native'
+import { Text, TouchableOpacity, StatusBar, ScrollView, View } from 'react-native'
 
-import { SearchBar, IgIcon } from '../../components'
+import { SearchBar, IgIcon, IgRoundImage } from '../../components'
 
 import { HeaderBackButton, NavigationActions } from 'react-navigation'
 
@@ -16,13 +16,16 @@ export class DirectScreen extends BaseScreen {
         const title = navigation.getParam('title')
 
         return {
-            title,
             headerLeft: <HeaderBackButton onPress={navigation.getParam('_onDismiss')} />
         }
     }
 
     constructor(props) {
         super(props)
+
+        this.state = {
+            searchText: '',
+        }
 
         this._onDismiss = this._onDismiss.bind(this)
     }
@@ -47,15 +50,19 @@ export class DirectScreen extends BaseScreen {
 
     _renderContact(contact) {
         return (
-            <View style={styles.contactContainer} key={contact.id}>
-                <Image
+            <View
+                key={contact.id}
+                style={styles.contactContainer}>
+                <IgRoundImage
+                    size={45}
                     source={{ uri: contact.photo }}
-                    style={styles.contactPhoto}
                 />
                 <View style={{ marginLeft: 10, flex: 1 }}>
                     <Text>{contact.user}</Text>
                 </View>
-                <IgIcon name='camera-outline' style={{ fontSize: 30 }} />
+                <TouchableOpacity>
+                    <IgIcon name='camera-outline' style={{ fontSize: 30 }} />
+                </TouchableOpacity>
             </View>
         )
     }
@@ -76,9 +83,14 @@ export class DirectScreen extends BaseScreen {
     }
 
     renderContent() {
+        const { searchText } = this.state
+
         return (
             <React.Fragment>
-                <SearchBar />
+                <SearchBar
+                    value={searchText}
+                    onTextChange={(text) => this.setState({ searchText: text })}
+                />
                 <ScrollView>
                     {this._renderContacts()}
                 </ScrollView>

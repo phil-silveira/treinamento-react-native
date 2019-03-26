@@ -7,7 +7,7 @@ export class IgHeader extends React.Component {
     render() {
         const {
             left, center, right,
-            onPressLeft, onPressCenter, onPressRight,
+            onPressLeft, onPressRight,
             style
         } = this.props
 
@@ -23,15 +23,15 @@ export class IgHeader extends React.Component {
                         {left}
                     </Text>
                 </TouchableOpacity >
-                <TouchableOpacity
+                <View
                     style={styles.button}
-                    onPress={onPressCenter}>
+                >
                     <Text
                         style={{ ...styles.text, fontWeight: '500' }}
                     >
                         {center}
                     </Text>
-                </TouchableOpacity>
+                </View>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={onPressRight}>

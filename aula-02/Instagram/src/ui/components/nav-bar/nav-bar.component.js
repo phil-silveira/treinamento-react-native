@@ -1,10 +1,12 @@
 import React from 'react'
-import { Platform, StatusBar, StyleSheet } from 'react-native'
+import { StatusBar } from 'react-native'
 
 import { IgHeader, IgIcon } from '../../components'
 
 import { DIRECT_ROUTES } from '../../navigator/routes/direct/direct.route'
 import { CAMERA_ROUTES } from '../../navigator/routes/camera/camera.route'
+
+import styles from './nav-bar.style'
 
 export class NavBar extends React.Component {
     constructor() {
@@ -41,30 +43,3 @@ export class NavBar extends React.Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "white",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        ...Platform.select({
-            ios: {
-                height: 90,
-                paddingTop: 40,
-            },
-            android: {
-                height: 82,
-                paddingTop: 20,
-            }
-        }),
-        paddingHorizontal: 10,
-        borderBottomWidth: 1,
-        borderColor: "#ddd"
-    },
-    title: {
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        fontSize: 30
-    }
-})

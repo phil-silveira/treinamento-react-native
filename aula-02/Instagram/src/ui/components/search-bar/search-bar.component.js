@@ -6,15 +6,19 @@ import styles from './search-bar.style'
 
 export class SearchBar extends React.Component {
     render() {
+        const { onTextChange, value } = this.props
+
         return (
-            <View style={styles.container}>
+            <View style={styles.searchInputContainer}>
+                <TextInput
+                    style={styles.searchInput}
+                    onTextChange={onTextChange}
+                    placeholder='Search'
+                    value={value}
+                />
                 <IgIcon
                     name='search'
                     style={styles.icon}
-                />
-                <TextInput
-                    style={styles.text}
-                    placeholder='Search'
                 />
             </View>
         )
