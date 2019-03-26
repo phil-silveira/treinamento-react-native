@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 import { RNCamera } from 'react-native-camera'
 import Permissions from 'react-native-permissions'
+
+import { IgCameraControlBar } from './sections/ig-camera-control-bar.component'
 
 import { styles } from './ig-camera.style'
 
@@ -74,7 +76,9 @@ export class IgCamera extends Component {
 
             this.camera.resumePreview()
 
-            alert(data.uri)
+            this.setState({
+                photoPreview: { uri: data.uri }
+            })
         }
     }
 
@@ -87,37 +91,11 @@ export class IgCamera extends Component {
                     flashMode={RNCamera.Constants.FlashMode.auto}
                     type={RNCamera.Constants.Type.back}
                 />
-                <View
-                    style={{
-                        position: 'absolute',
-                        width: Dimensions.get('window').width,
-                        height: Dimensions.get('window').height,
-                        justifyContent: 'flex-end',
-                        alignItems: 'center',
-                    }}>
 
-                    <TouchableOpacity
-                        onPress={this.takePicture}
-                        style={{
-                            borderRadius: 50,
-                            borderWidth: 1,
-                            borderColor: '#fff',
-                            backgroundColor: 'transparent',
-                            width: 70,
-                            height: 70,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                    >
-                        <View
-                            style={{
-                                backgroundColor: '#fff',
-                                borderRadius: 50,
-                                width: 65,
-                                height: 65,
-                            }} />
-                    </TouchableOpacity>
-                </View>
+                <IgCameraControlBar
+                    onPressTakePicture={this.takePicture}
+                    photoPreview={this.state.photoPreview}
+                />
             </View>
         )
     }
@@ -127,7 +105,7 @@ export class IgCamera extends Component {
             <View style={styles.permissionRequest.container}>
                 <Text style={styles.permissionRequest.title}>
                     Precisamos de permissão para acessar sua câmera e seu microfone!
-        </Text>
+                </Text>
                 <TouchableOpacity
                     style={styles.permissionRequest.button}
                     onPress={this._requestPermissions}
@@ -135,7 +113,7 @@ export class IgCamera extends Component {
                 >
                     <Text style={styles.permissionRequest.buttonText}>
                         PERMITIR
-          </Text>
+                    </Text>
                 </TouchableOpacity>
             </View>
         )

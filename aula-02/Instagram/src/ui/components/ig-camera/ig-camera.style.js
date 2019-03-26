@@ -3,6 +3,11 @@ import { StyleSheet } from 'react-native'
 const camera = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'flex-end',
+    },
+    controloBar: {
+        position: 'absolute',
+        width: '100%',
     },
     rnCamera: {
         flex: 1

@@ -1,44 +1,83 @@
 import React from 'react'
-import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 
-export default class IgCameraControlBar extends React.Component {
-    renderButtonTakePicture = () => {
+import { IgIcon, IgRoundImage } from '../../'
 
-    }
+export class IgCameraControlBar extends React.Component {
+    renderBtn = (child, onPress) => (
+        <TouchableOpacity
+            style={styles.Btn}
+            onPress={onPress}
+        >
+            {child}
+        </TouchableOpacity>
+    )
 
-    renderButtonChangeCamera = () => {
+    renderButtonTakePicture = (onPressTakePicture) => (
+        this.renderBtn(
+            <View style={styles.takePicture} />,
+            onPressTakePicture
+        )
+    )
 
-    }
+    renderButtonChangeCamera = (onPressChangeCamera) => (
+        this.renderBtn(
+            <IgIcon name='left-arrow' style={{ fontSize: 15, color: 'white' }} />,
+            onPressChangeCamera
+        )
+    )
 
-    renderPhotoPreview = () => {
-
-    }
+    renderPhotoPreview = (photoPreview) => (
+        photoPreview ?
+            this.renderBtn(
+                <IgRoundImage
+                    source={photoPreview}
+                    size={60}
+                />,
+                null
+            ) :
+            <View style={{ width: 60 }} />
+    )
 
     render() {
+        const { onPressTakePicture, onPressChangeCamera, photoPreview } = this.props
+
         return (
-            <View style={styles.container}>
-                {renderPhotoPreview()}
-                {renderButtonTakePicture()}
-                {renderButtonChangeCamera()}
+            <View style={styles.controlBar}>
+                {this.renderPhotoPreview(photoPreview)}
+                {this.renderButtonTakePicture(onPressTakePicture)}
+                {this.renderButtonChangeCamera(onPressChangeCamera)}
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    controlBar: {
+        width: '100%',
+        height: 100,
         position: 'absolute',
-        backgroundColor: '#262626',
-        opacity: 0.5,
-        width: Dimensions.get('window').width,
-        height: 300,
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
     },
     Btn: {
+        width: 60,
+        height: 60,
         borderWidth: 1,
         borderRadius: 50,
         borderColor: 'white',
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    takePicture: {},
+    takePicture: {
+        width: 55,
+        height: 55,
+        borderRadius: 50,
+        backgroundColor: 'white',
+    },
     changeCamera: {},
     photoPreview: {}
 })
