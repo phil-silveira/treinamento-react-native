@@ -8,4 +8,8 @@ export class DogService extends BaseService {
     getRandomImage() {
         return super.get('/breeds/image/random')
     }
+
+    getRandomImages(numImages) {
+        return super.get(`/breeds/image/random/${numImages}`)
+    }
 }
