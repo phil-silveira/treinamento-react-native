@@ -22,7 +22,7 @@ export class IgCameraControlBar extends React.Component {
 
     renderButtonChangeCamera = (onPressChangeCamera) => (
         this.renderBtn(
-            <IgIcon name='left-arrow' style={{ fontSize: 15, color: 'white' }} />,
+            <IgIcon name='loop-arrow' style={styles.changeCamera} />,
             onPressChangeCamera
         )
     )
@@ -78,6 +78,9 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: 'white',
     },
-    changeCamera: {},
+    changeCamera: {
+        color: 'white',
+        fontSize: 18,
+    },
     photoPreview: {}
 })

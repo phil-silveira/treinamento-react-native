@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Text, TouchableOpacity, View } from 'react-native'
 import { RNCamera } from 'react-native-camera'
 import Permissions from 'react-native-permissions'
 
 import { IgCameraControlBar } from './sections/ig-camera-control-bar.component'
 
+import { StorageService } from '../../services'
+
 import { styles } from './ig-camera.style'
 
 const CAMERA_PERMITION_TYPE = 'camera'
 const MICROPHONE_PERMISSION_TYPE = 'microphone'
+
+const CAMERA_TYPE = {
+    BACK: RNCamera.Constants.Type.back,
+    FRONT: RNCamera.Constants.Type.front,
+}
 
 export class IgCamera extends Component {
     constructor(props) {
@@ -16,8 +23,13 @@ export class IgCamera extends Component {
 
         this.state = {
             cameraPermission: null,
-            microphonePermission: null
+            microphonePermission: null,
+            cameraOptions: {
+                type: CAMERA_TYPE.BACK
+            }
         }
+
+        this.verifyPhotoIDExist()
 
         this.onRef = this.onRef.bind(this)
         this.takePicture = this.takePicture.bind(this)
@@ -76,25 +88,51 @@ export class IgCamera extends Component {
 
             this.camera.resumePreview()
 
+            const nextPhotoID = await (Number(StorageService.getString('photoID')) + 1).toString()
+            await StorageService.setObject(nextPhotoID, { uri: data.uri })
+            await StorageService.setString('photoID', nextPhotoID)
+
+            // Alert.alert(nextPhotoID)
+
             this.setState({
                 photoPreview: { uri: data.uri }
             })
         }
     }
 
+    verifyPhotoIDExist = async () => {
+        const photoID = await StorageService.getString('photoID')
+
+        // if (photoID === null) {
+        await StorageService.setString('photoID', '1')
+        // }
+
+    }
+
+    toggleCamera = () => {
+        const { cameraOptions } = this.state
+        const type = cameraOptions.type === CAMERA_TYPE.BACK ? CAMERA_TYPE.FRONT : CAMERA_TYPE.BACK
+
+        this.setState({ cameraOptions: { type } })
+    }
+
     renderCamera() {
+        const { cameraOptions } = this.state
+
         return (
             <View style={styles.camera.container}>
                 <RNCamera
                     style={styles.camera.rnCamera}
                     ref={this.onRef}
                     flashMode={RNCamera.Constants.FlashMode.auto}
-                    type={RNCamera.Constants.Type.back}
+                    type={cameraOptions.type}
                 />
 
                 <IgCameraControlBar
                     onPressTakePicture={this.takePicture}
                     photoPreview={this.state.photoPreview}
+
+                    onPressChangeCamera={this.toggleCamera}
                 />
             </View>
         )
