@@ -14,6 +14,7 @@ export default styles = StyleSheet.create({
             android: {
                 height: 80,
                 paddingTop: 40,
+                paddingBottom: 20,
             }
         }),
         paddingHorizontal: 5,

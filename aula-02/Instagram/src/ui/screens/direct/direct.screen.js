@@ -11,12 +11,15 @@ import { BaseScreen } from '../../screens'
 
 import styles from './direct.style'
 
+import { CAMERA_ROUTES } from '../../navigator/routes/camera/camera.route'
+
 export class DirectScreen extends BaseScreen {
     static navigationOptions = ({ navigation }) => {
         const title = navigation.getParam('title')
 
         return {
-            headerLeft: <HeaderBackButton onPress={navigation.getParam('_onDismiss')} />
+            headerLeft: <HeaderBackButton onPress={navigation.getParam('_onDismiss')} />,
+            title: "Direct"
         }
     }
 
@@ -48,20 +51,26 @@ export class DirectScreen extends BaseScreen {
         StatusBar.setTranslucent(false)
     }
 
+    goToCamera = () => {
+        this.props.navigation.navigate(CAMERA_ROUTES.CAMERA)
+    }
+
     _renderContact(contact) {
         return (
             <View
                 key={contact.id}
                 style={styles.contactContainer}>
                 <IgRoundImage
-                    size={45}
+                    size={55}
                     source={{ uri: contact.photo }}
                 />
                 <View style={{ marginLeft: 10, flex: 1 }}>
-                    <Text>{contact.user}</Text>
+                    <Text style={{ color: '#262626' }}>{contact.user}</Text>
                 </View>
-                <TouchableOpacity>
-                    <IgIcon name='camera-outline' style={{ fontSize: 30 }} />
+                <TouchableOpacity
+                    onPress={this.goToCamera}
+                >
+                    <IgIcon name='camera-outline' style={{ fontSize: 22 }} />
                 </TouchableOpacity>
             </View>
         )
@@ -69,8 +78,12 @@ export class DirectScreen extends BaseScreen {
 
     _renderCameraButton() {
         return (
-            <TouchableOpacity activeOpacity={0.8} style={styles.cameraButton}>
-                <IgIcon name='photo-camera' style={{ fontSize: 30 }} />
+            <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.cameraButton}
+                onPress={this.goToCamera}
+            >
+                <IgIcon name='photo-camera' style={styles.cameraButtonIcon} />
                 <Text style={styles.cameraButtonText}>
                     Camera
             </Text>

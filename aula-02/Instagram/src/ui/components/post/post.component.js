@@ -8,17 +8,19 @@ import { IgIcon, IgRoundImage } from '../../components'
 export class Post extends PureComponent {
     renderPostHeader = (post) => {
         return (
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={{ flexDirection: "row", alignItems: "center", padding: 10 }}>
                 <IgRoundImage
-                    size={50}
+                    size={40}
                     source={{ uri: post.perfil }} />
-                <View style={{ flex: 1, justifyContent: "center" }}>
-                    <Text>{post.autor}</Text>
+                <View style={{ flex: 1, justifyContent: "center", paddingLeft: 8 }}>
+                    <Text style={{ fontWeight: '700', color: '#262626' }}>
+                        {post.autor}
+                    </Text>
                     {(post.local) ? <Text>{post.local}</Text> : null}
                 </View>
                 <TouchableOpacity>
                     <IgIcon
-                        style={{ fontSize: 20, margin: 10 }}
+                        style={{ fontSize: 15, color: '#262626', margin: 10, transform: [{ rotateZ: '90deg' }] }}
                         name='dots-three-horizontal' />
                 </TouchableOpacity>
             </View>
@@ -28,9 +30,11 @@ export class Post extends PureComponent {
     renderPostFooter = (post) => {
         return (
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <IgIcon
-                    style={{ fontSize: 20, margin: 10 }}
-                    name={post.liked ? 'heart-full' : 'heart-empty'} />
+                <TouchableOpacity>
+                    <IgIcon
+                        style={post.liked ? { fontSize: 25, margin: 10, color: "#e74c3c" } : { fontSize: 25, margin: 10 }}
+                        name={post.liked ? 'heart-full' : 'heart-empty'} />
+                </TouchableOpacity>
                 <Text>{post.curtidas} Likes</Text>
             </View>
         )
@@ -40,7 +44,7 @@ export class Post extends PureComponent {
         const { post, key } = this.props
 
         return (
-            <View key={key} style={{ backgroundColor: "#F5FCFF", }}>
+            <View key={key} style={{}}>
                 {this.renderPostHeader(post)}
                 <Image
                     style={{ width, height: width }}

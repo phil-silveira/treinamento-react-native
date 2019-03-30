@@ -36,7 +36,6 @@ export default styles = StyleSheet.create({
     },
     contactContainer: {
         flex: 1,
-        backgroundColor: 'white',
         height: 50,
         flexDirection: 'row',
         alignItems: 'center',
@@ -49,14 +48,12 @@ export default styles = StyleSheet.create({
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderTopWidth: 3,
-        borderColor: '#ddd',
-        backgroundColor: '#fefefe'
+        borderTopWidth: 1,
+        borderColor: 'rgba(0,0,0,0.2)',
     },
     cameraButtonIcon: {
-        width: 25,
-        height: 25,
-        color: '#5DA7FF'
+        fontSize: 25,
+        color: '#3285EE'
     },
     cameraButtonText: {
         marginLeft: 8,
