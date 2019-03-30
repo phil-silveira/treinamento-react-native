@@ -5,18 +5,18 @@ export default styles = StyleSheet.create({
         backgroundColor: "white",
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: 'center',
         ...Platform.select({
             ios: {
-                height: 90,
+                height: 80,
                 paddingTop: 40,
             },
             android: {
-                height: 82,
-                paddingTop: 20,
+                height: 80,
+                paddingTop: 40,
             }
         }),
-        paddingHorizontal: 10,
+        paddingHorizontal: 5,
         borderBottomWidth: 1,
         borderColor: "#ddd"
     },

@@ -41,7 +41,7 @@ export class StoryList extends React.Component {
                 end={{ x: 0, y: 1 }}
                 colors={['#A21391', '#CD106A', '#D82851', '#E95634', '#F8A64D']}
 
-                style={{ borderRadius: 50, margin: 1 }}
+                style={{ borderRadius: 50, padding: 2 }}
             >
                 <IgRoundImage
                     size={60}
@@ -56,7 +56,7 @@ export class StoryList extends React.Component {
     render() {
         const { stories } = this.state
         return (
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} >
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.storiesContainer}>
                 {stories ? stories.map((story) => this.renderStory(story)) : null}
             </ScrollView>
         )
@@ -64,11 +64,16 @@ export class StoryList extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    storiesContainer: {
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(0,0,0,0.1)',
+    },
     story: {
         width: 70,
         alignItems: 'center',
-        marginVertical: 5,
-
+        marginTop: 8,
+        marginBottom: 5,
+        marginHorizontal: 6,
     },
     storyText: {
         width: 60,

@@ -12,7 +12,8 @@ export class IgRoundImage extends React.Component {
                     width: size,
                     height: size,
                     borderRadius: size,
-                    margin: size / 10,
+                    borderWidth: 2,
+                    borderColor: 'white',
                     ...style
                 }}
             />

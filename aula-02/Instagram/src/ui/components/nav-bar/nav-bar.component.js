@@ -32,9 +32,9 @@ export class NavBar extends React.Component {
                 <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
                 <IgHeader
                     style={styles.container}
-                    left={<IgIcon name='camera-outline' style={{ fontSize: 30 }} />}
-                    center={<IgIcon name='instagram-logo' style={{ fontSize: 32 }} />}
-                    right={<IgIcon name='paper-plane' style={{ fontSize: 30 }} />}
+                    left={<IgIcon name='camera-outline' style={{ fontSize: 20 }} />}
+                    center={<IgIcon name='instagram-logo' style={{ fontSize: 25, marginTop: 50 }} />}
+                    right={<IgIcon name='paper-plane' style={{ fontSize: 25 }} />}
 
                     onPressLeft={() => this.goToCamera()}
                     onPressRight={() => this.goToDirect()}
