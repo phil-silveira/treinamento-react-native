@@ -1,12 +1,10 @@
 import React from "react";
-import { ScrollView, StatusBar } from "react-native";
+import { ScrollView, StatusBar, RefreshControl } from "react-native";
 
 import { Post } from '../../components'
 import { StoryList } from './sections/story-list/story-list.component'
 
 import { BaseScreen } from '../../screens/base'
-
-import api from "../../../api/api-fake.json";
 
 import { PostService } from '../../services/post/post.service'
 
@@ -15,10 +13,18 @@ export class FeedScreen extends BaseScreen {
         super()
         this.postService = new PostService()
 
-        this.state = { feed: [] }
+        this.state = {
+            feed: [],
+            refreshing: false
+        }
     }
 
-    fetchMorePosts() {
+    _onRefresh = async () => {
+        this.setState({ refreshing: true })
+        this._fetchMorePosts()
+    }
+
+    _fetchMorePosts() {
         this.postService.getRandomPosts(3)
             .then(res => {
                 const posts = res.message.map(image => ({
@@ -31,7 +37,8 @@ export class FeedScreen extends BaseScreen {
 
 
                 this.setState({
-                    feed: [...this.state.feed, ...posts]
+                    feed: [...posts, ...this.state.feed],
+                    refreshing: false
                 })
             })
     }
@@ -40,12 +47,19 @@ export class FeedScreen extends BaseScreen {
         const { feed } = this.state
 
         if (feed.length === 0)
-            this.fetchMorePosts()
+            this._fetchMorePosts()
 
 
         return (
             <React.Fragment>
-                <ScrollView>
+                <ScrollView
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={this.state.refreshing}
+                            onRefresh={this._onRefresh}
+                        />
+                    }
+                >
                     <StoryList />
                     {feed.length > 0 ? feed.map((post, key) => (
                         <React.Fragment key={key}>
